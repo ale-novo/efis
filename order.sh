@@ -8,11 +8,11 @@ splash_title='pqiv'
 splash_bin='pqiv'
 
 while true; do
-  if pgrep "$simvim_bin" >/dev/null; then
-    wmctrl -a "$simvim_title"
-  fi
-
   if pgrep "$splash_bin" >/dev/null; then
     wmctrl -a "$splash_title"
+  else
+    if pgrep "$simvim_bin" >/dev/null; then
+      wmctrl -a "$simvim_title"
+    fi
   fi
 done
