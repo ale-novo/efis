@@ -9,6 +9,7 @@ xrandr --output DSI-1 --mode 720x720
 unclutter -idle 0.2 &
 
 pqiv -i --fullscreen /home/pi/efis/splash.png &
+wmctrl -r 'pqiv' -b add,above
 
 mkdir $dir/logs 2>/dev/null
 rm $dir/logs/*.log 2>/dev/null
