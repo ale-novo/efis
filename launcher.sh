@@ -8,9 +8,14 @@ xrandr --addmode DSI-1 720x720
 xrandr --output DSI-1 --mode 720x720
 unclutter -idle 0.2 &
 
+pqiv -i --fullscreen /home/pi/efis/splash.png &
+
 mkdir $dir/logs 2>/dev/null
 rm $dir/logs/*.log 2>/dev/null
 
 sleep 15
 $dir/pull.sh
 $dir/simvim.sh "$mode" |& tee -a $dir/logs/simvim_`date +%F`.log &
+
+sleep 15
+pkill pqiv
